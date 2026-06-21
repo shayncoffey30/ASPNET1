@@ -29,6 +29,7 @@ namespace Testing.Controllers
         public IActionResult UpdateProduct(int id)
         {
             Product prod = repo.GetProduct(id);
+            
             if (prod == null)
             {
                 return View("ProductNotFound");
@@ -42,6 +43,20 @@ namespace Testing.Controllers
 
             return RedirectToAction("ViewProduct", new { id = product.ProductID });
         }
+
+        public IActionResult InsertProduct()
+        {
+            var prod = repo.AssignCategory();
+            return View(prod);
+        }
+
+        public IActionResult InsertProductToDatabase(Product productToInsert)
+        {
+            repo.InsertProduct(productToInsert);
+            return RedirectToAction("Index");
+        }
+
+
 
     }
 }

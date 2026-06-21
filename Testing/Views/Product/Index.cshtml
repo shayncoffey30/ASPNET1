@@ -1,7 +1,12 @@
 ﻿@model IEnumerable<Product>
 
 <h2>Products</h2>
-<table class="table">
+
+<div style="display: block">
+    <a href="/Product/InsertProduct/">Create a New Product</a>
+</div>
+
+<table class="table"></table>
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -21,4 +26,6 @@
             <td>@product.OnSale</td>
             <td>@product.StockLevel</td>
         </tr>
+
+        
     }
